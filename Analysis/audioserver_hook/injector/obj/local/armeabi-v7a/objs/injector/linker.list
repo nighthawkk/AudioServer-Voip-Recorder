@@ -1,0 +1,1 @@
+ ./obj/local/armeabi-v7a/objs/injector/main.o ./obj/local/armeabi-v7a/objs/injector/injector.o ./obj/local/armeabi-v7a/objs/injector/ptrace_wrapper.o ./obj/local/armeabi-v7a/objs/injector/process_utils.o

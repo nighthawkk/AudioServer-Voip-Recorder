@@ -1,0 +1,32 @@
+/data/local/tmp/sepolicy-inject -s audioserver -t apk_data_file -c dir -p search -l
+/data/local/tmp/sepolicy-inject -s audioserver -t shell_data_file -c dir -p search -l
+/data/local/tmp/sepolicy-inject -s audioserver -t unlabeled -c dir -p search,write,add_name,create,remove_name -l
+/data/local/tmp/sepolicy-inject -s audioserver -t unlabeled -c file -p open,read,write,getattr,map,execute,create,append,rename -l
+/data/local/tmp/sepolicy-inject -s audioserver -t apk_data_file -c file -p open,read,write,getattr,map,execute -l
+/data/local/tmp/sepolicy-inject -s audioserver -t audioserver -c process -p execmem -l
+/data/local/tmp/sepolicy-inject -s audioserver -t shell_exec -c file -p execute,execute_no_trans,read,open,map,getattr -l
+/data/local/tmp/sepolicy-inject -s audioserver -t system_file -c file -p execute,execute_no_trans,read,open,map,getattr -l
+/data/local/tmp/sepolicy-inject -s audioserver -t audioserver -c process -p setexec -l
+/data/local/tmp/sepolicy-inject -s audioserver -t shell -c process -p transition,noatsecure,siginh,rlimitinh -l
+/data/local/tmp/sepolicy-inject -s shell -t audioserver -c fifo_file -p write -l
+/data/local/tmp/sepolicy-inject -s system_server -t audioserver -c fifo_file -p write -l
+/data/local/tmp/sepolicy-inject -s audioserver -t toolbox_exec -c file -p execute,execute_no_trans,read,open,map,getattr -l
+/data/local/tmp/sepolicy-inject -s shell -t system_file -c file -p entrypoint -l
+
+{
+"/data/local/tmp/sepolicy-inject -s audioserver -t apk_data_file -c dir -p search -l",
+"/data/local/tmp/sepolicy-inject -s audioserver -t shell_data_file -c dir -p search -l",
+"/data/local/tmp/sepolicy-inject -s audioserver -t unlabeled -c dir -p search,write,add_name,create,remove_name -l",
+"/data/local/tmp/sepolicy-inject -s audioserver -t unlabeled -c file -p open,read,write,getattr,map,execute,create,append,rename -l",
+"/data/local/tmp/sepolicy-inject -s audioserver -t apk_data_file -c file -p open,read,write,getattr,map,execute -l",
+"/data/local/tmp/sepolicy-inject -s audioserver -t audioserver -c process -p execmem -l",
+"/data/local/tmp/sepolicy-inject -s audioserver -t shell_exec -c file -p execute,execute_no_trans,read,open,map,getattr -l",
+"/data/local/tmp/sepolicy-inject -s audioserver -t system_file -c file -p execute,execute_no_trans,read,open,map,getattr -l",
+"/data/local/tmp/sepolicy-inject -s audioserver -t audioserver -c process -p setexec -l",
+"/data/local/tmp/sepolicy-inject -s audioserver -t shell -c process -p transition,noatsecure,siginh,rlimitinh -l",
+"/data/local/tmp/sepolicy-inject -s shell -t audioserver -c fifo_file -p write -l",
+"/data/local/tmp/sepolicy-inject -s system_server -t audioserver -c fifo_file -p write -l",
+"/data/local/tmp/sepolicy-inject -s audioserver -t toolbox_exec -c file -p execute,execute_no_trans,read,open,map,getattr -l",
+"/data/local/tmp/sepolicy-inject -s shell -t system_file -c file -p entrypoint -l"
+}
+

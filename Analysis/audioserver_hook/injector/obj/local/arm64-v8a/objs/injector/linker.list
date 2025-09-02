@@ -1,0 +1,1 @@
+ ./obj/local/arm64-v8a/objs/injector/main.o ./obj/local/arm64-v8a/objs/injector/injector.o ./obj/local/arm64-v8a/objs/injector/ptrace_wrapper.o ./obj/local/arm64-v8a/objs/injector/process_utils.o
