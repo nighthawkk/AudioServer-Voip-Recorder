@@ -2,6 +2,7 @@ package com.recorder.voip;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,6 +26,8 @@ public class LogsActivity extends AppCompatActivity {
     private final Handler uiHandler = new Handler();
     private final int BATCH_DELAY_MS = 200; // update every 200ms
 
+    private boolean userAtBottom = true; // <-- added this
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +39,18 @@ public class LogsActivity extends AppCompatActivity {
         startCursorBlink();
         startBatchUpdater();
         startLogcatStream();
+
+        scrollView.setOnScrollChangeListener(new ScrollView.OnScrollChangeListener() {
+            @Override
+            public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+                int maxScroll = logTextView.getHeight() - scrollView.getHeight();
+
+                // If user is near the bottom (within 20px)
+                userAtBottom = (maxScroll - scrollY) < 20;
+            }
+
+
+        });
     }
 
     @Override
@@ -102,6 +117,7 @@ public class LogsActivity extends AppCompatActivity {
         logLines.addLast(filtered);
     }
 
+
     /** Efficient text update */
     private void updateTextView() {
         StringBuilder sb = new StringBuilder();
@@ -111,7 +127,12 @@ public class LogsActivity extends AppCompatActivity {
         if (cursorVisible) sb.append("|");
         logTextView.setText(sb.toString());
 
-        scrollView.post(() -> scrollView.fullScroll(ScrollView.FOCUS_DOWN));
+        // Only auto-scroll if the user is at the bottom
+        if (userAtBottom) {
+            scrollView.post(() -> scrollView.fullScroll(ScrollView.FOCUS_DOWN));
+        }
+
+//        scrollView.post(() -> scrollView.fullScroll(ScrollView.FOCUS_DOWN));
     }
 
     /** Cursor blinking */
