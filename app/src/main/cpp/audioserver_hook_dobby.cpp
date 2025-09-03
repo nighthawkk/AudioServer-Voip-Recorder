@@ -18,18 +18,11 @@
 #include "../include/get_lib_address.h"
 
 #include "dobby.h"
+#include "offsets.h"
 
 #define LOG_TAG "AudioHook"
 #define LOGD(...) __android_log_print(ANDROID_LOG_DEBUG, LOG_TAG, __VA_ARGS__)
 #define LOGE(...) __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, __VA_ARGS__)
-
-// Offsets from your reversed analysis
-constexpr size_t SAMPLERATE_OFFSET = 0x178;
-constexpr size_t UID_OFFSET = 0x234;
-constexpr size_t ISOUT_OFFSET = 0x1C8;
-constexpr size_t FORMAT_OFFSET = 0x17C;
-constexpr size_t CHANNELMASK_OFFSET = 0x180;
-constexpr size_t ATTR_OFFSET = 0x68;
 
 // Audio format enum values from AOSP
 enum AudioFormat {
@@ -441,29 +434,9 @@ static void hook_RecordTrack_stop(void* thisPtr) {
     if (orig_RecordTrack_stop) orig_RecordTrack_stop(thisPtr);
 }
 
-#define AUDIOFLINGER_SETMODE_OFFSET 0x4DE40
-// android::AudioFlinger::setMode(audio_mode_t)	000000000004DE40	
-#define RECORDTRACK_GETNEXTBUFFER_OFFSET 0x1364F0
-// android::AudioFlinger::RecordThread::RecordTrack::getNextBuffer(android::AudioBufferProvider::Buffer *)	00000000001364F0	
-#define TRACK_GETNEXTBUFFER_OFFSET 0x12C2A0
-// android::AudioFlinger::PlaybackThread::Track::getNextBuffer(android::AudioBufferProvider::Buffer *)	000000000012C2A0	
-#define TRACK_STOP_OFFSET 0x12D7D0
-// android::AudioFlinger::PlaybackThread::Track::stop(void)	000000000012D7D0	
-#define RECORDTRACK_STOP_OFFSET 0x1367C0
-// android::AudioFlinger::RecordThread::RecordTrack::stop(void)	00000000001367C0	
+
 // Initialization
 extern "C" void init_hooks() {
-   
-    // Symbol names (mangled)
-    
-    // const char* sym_RecordTrack_getNextBuffer =
-    //     "_ZN7android12AudioFlinger12RecordThread11RecordTrack13getNextBufferEPNS_19AudioBufferProvider6BufferE";
-    // const char* sym_Track_getNextBuffer =
-    //     "_ZN7android12AudioFlinger14PlaybackThread5Track13getNextBufferEPNS_19AudioBufferProvider6BufferE";
-    // const char* sym_Track_stop =
-    //     "_ZN7android12AudioFlinger14PlaybackThread5Track4stopEv";
-    // const char* sym_RecordTrack_stop =
-    //     "_ZN7android12AudioFlinger12RecordThread11RecordTrack4stopEv";
 
 
     char *flingerLib = "/system/lib64/libaudioflinger.so";
@@ -476,6 +449,8 @@ extern "C" void init_hooks() {
     void* addr;
 
     addr = (void*)(base + AUDIOFLINGER_SETMODE_OFFSET);
+
+    LOGD("addr: 0x%lx", addr);
     // Hook AudioFlinger::setMode first (most important)
     if (DobbyHook(addr, (void*)hook_AudioFlinger_setMode, 
                   (void**)&orig_AudioFlinger_setMode) == 0) {
