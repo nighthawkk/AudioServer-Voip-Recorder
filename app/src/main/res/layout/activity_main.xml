@@ -118,6 +118,20 @@
             android:shadowRadius="8"
             android:layout_marginBottom="16dp"/>
 
+        <!-- Play Audios -->
+        <Button
+            android:id="@+id/btnPlayAudios"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:text="Play Audios"
+            android:textColor="#00FF00"
+            android:backgroundTint="#111111"
+            android:shadowColor="#00FF00"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="8"
+            android:layout_marginBottom="16dp"/>
+
         <!-- Delete Data -->
         <Button
             android:id="@+id/btnDeleteData"

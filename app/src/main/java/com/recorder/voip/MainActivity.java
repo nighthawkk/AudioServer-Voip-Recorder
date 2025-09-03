@@ -126,6 +126,11 @@ public class MainActivity extends AppCompatActivity {
             }).start();
         });
 
+        binding.btnPlayAudios.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, VoipFileManagerSuActivity.class);
+            startActivity(intent);
+        });
+
         binding.btnDeleteData.setOnClickListener(v -> {
             binding.tvStatus.setText("Deleting Data. Wait...");
             new Thread(() -> {

@@ -16,6 +16,11 @@
         <activity
             android:name=".LogsActivity"
             android:exported="false" />
+
+        <activity
+            android:name=".VoipFileManagerSuActivity"
+            android:exported="false" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true">

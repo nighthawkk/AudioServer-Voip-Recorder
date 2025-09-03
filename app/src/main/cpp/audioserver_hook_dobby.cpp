@@ -15,7 +15,7 @@
 #include <fstream>
 #include <sstream>
 
-#include "../include/get_lib_address.h"
+#include "get_lib_address.h"
 
 #include "dobby.h"
 #include "offsets.h"
