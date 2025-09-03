@@ -41,7 +41,7 @@ def process_file(path):
         channels = 1
         wav_rate = samplerate
 
-    outfile = os.path.splitext(path)[0] + ".wav"
+    outfile = path.replace('.','_') + ".wav"
     convert_to_wav(path, outfile, wav_rate, channels)
 
 
