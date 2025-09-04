@@ -9,145 +9,148 @@
     tools:context=".MainActivity">
 
     <!-- Centered container for buttons -->
+
+    <!-- Status text below buttons -->
     <LinearLayout
         android:id="@+id/buttonContainer"
-        android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.391">
 
         <!-- Inject Policies -->
         <Button
             android:id="@+id/btnInjectPolicies"
             android:layout_width="220dp"
             android:layout_height="wrap_content"
-            android:text="Inject Policies"
-            android:textColor="#00FF00"
+            android:layout_marginBottom="16dp"
             android:backgroundTint="#111111"
             android:shadowColor="#00FF00"
             android:shadowDx="0"
             android:shadowDy="0"
             android:shadowRadius="8"
-            android:layout_marginBottom="16dp"/>
+            android:text="Inject Policies"
+            android:textColor="#00FF00" />
 
         <!-- Start Monitoring -->
         <Button
             android:id="@+id/btnStartMonitoring"
             android:layout_width="220dp"
             android:layout_height="wrap_content"
-            android:text="Start Monitoring"
-            android:textColor="#00FF00"
+            android:layout_marginBottom="16dp"
             android:backgroundTint="#111111"
             android:shadowColor="#00FF00"
             android:shadowDx="0"
             android:shadowDy="0"
             android:shadowRadius="8"
-            android:layout_marginBottom="16dp"/>
+            android:text="Start Monitoring"
+            android:textColor="#00FF00" />
 
         <!-- Stop Monitoring -->
         <Button
             android:id="@+id/btnStopMonitoring"
             android:layout_width="220dp"
             android:layout_height="wrap_content"
-            android:text="Stop Monitoring"
-            android:textColor="#00FF00"
+            android:layout_marginBottom="16dp"
             android:backgroundTint="#111111"
             android:shadowColor="#00FF00"
             android:shadowDx="0"
             android:shadowDy="0"
             android:shadowRadius="8"
-            android:layout_marginBottom="16dp"/>
+            android:text="Stop Monitoring"
+            android:textColor="#00FF00" />
 
         <!-- Copy Data -->
         <Button
             android:id="@+id/btnCopyData"
             android:layout_width="220dp"
             android:layout_height="wrap_content"
-            android:text="Copy data to /sdcard"
-            android:textColor="#00FF00"
+            android:layout_marginBottom="16dp"
             android:backgroundTint="#111111"
             android:shadowColor="#00FF00"
             android:shadowDx="0"
             android:shadowDy="0"
             android:shadowRadius="8"
-            android:layout_marginBottom="16dp"/>
+            android:text="Copy data to /sdcard"
+            android:textColor="#00FF00" />
 
         <!-- View Logs -->
         <Button
             android:id="@+id/btnViewLogs"
             android:layout_width="220dp"
             android:layout_height="wrap_content"
-            android:text="View Logs"
-            android:textColor="#00FF00"
+            android:layout_marginBottom="16dp"
             android:backgroundTint="#111111"
             android:shadowColor="#00FF00"
             android:shadowDx="0"
             android:shadowDy="0"
             android:shadowRadius="8"
-            android:layout_marginBottom="16dp"/>
+            android:text="View Logs"
+            android:textColor="#00FF00" />
 
         <!-- Enable Selinux -->
         <Button
             android:id="@+id/btnEnableSelinux"
             android:layout_width="220dp"
             android:layout_height="wrap_content"
-            android:text="Enable Selinux"
-            android:textColor="#00FF00"
+            android:layout_marginBottom="16dp"
             android:backgroundTint="#111111"
             android:shadowColor="#00FF00"
             android:shadowDx="0"
             android:shadowDy="0"
             android:shadowRadius="8"
-            android:layout_marginBottom="16dp"/>
+            android:text="Enable Selinux"
+            android:textColor="#00FF00" />
 
         <!-- Disable Selinux -->
         <Button
             android:id="@+id/btnDisableSelinux"
             android:layout_width="220dp"
             android:layout_height="wrap_content"
-            android:text="Disable Selinux"
-            android:textColor="#00FF00"
+            android:layout_marginBottom="16dp"
             android:backgroundTint="#111111"
             android:shadowColor="#00FF00"
             android:shadowDx="0"
             android:shadowDy="0"
             android:shadowRadius="8"
-            android:layout_marginBottom="16dp"/>
+            android:text="Disable Selinux"
+            android:textColor="#00FF00" />
 
         <!-- Play Audios -->
         <Button
             android:id="@+id/btnPlayAudios"
             android:layout_width="220dp"
             android:layout_height="wrap_content"
-            android:text="Play Audios"
-            android:textColor="#00FF00"
+            android:layout_marginBottom="16dp"
             android:backgroundTint="#111111"
             android:shadowColor="#00FF00"
             android:shadowDx="0"
             android:shadowDy="0"
             android:shadowRadius="8"
-            android:layout_marginBottom="16dp"/>
+            android:text="Play Audios"
+            android:textColor="#00FF00" />
 
         <!-- Delete Data -->
         <Button
             android:id="@+id/btnDeleteData"
             android:layout_width="220dp"
             android:layout_height="wrap_content"
-            android:text="Delete Data"
-            android:textColor="#00FF00"
             android:backgroundTint="#111111"
             android:shadowColor="#00FF00"
             android:shadowDx="0"
             android:shadowDy="0"
-            android:shadowRadius="8"/>
+            android:shadowRadius="8"
+            android:text="Delete Data"
+            android:textColor="#00FF00" />
 
     </LinearLayout>
 
-    <!-- Status text below buttons -->
     <TextView
         android:id="@+id/tvStatus"
         android:layout_width="wrap_content"
